@@ -6,29 +6,36 @@ using namespace std;
 template<typename T>
 class Stack{
     private:
+        // la lista de elementos
         vector<T> elements;
     public:
 
+        // pushear un nuevo elemento
         void push(T item){
             elements.push_back(item);
         }
 
+        // borar el ultimo elemento
         void pop(){
             elements.pop_back();
         }
 
+        // retorna el ultimo elemento ingresado
         T & top(){
             return elements.at(elements.size() - 1);
         }
 
+        // retorna el elemento segun el indice
         T & getAt(int index){
             return elements.at(index);
         }
 
+        // booleano para identificar si esta vacio
         bool empty(){
             return elements.empty();
         }
 
+        // la sobrecarga para sumar otro stack en este mismo
         void operator+=(Stack<T> s){
             T aux;
             int index = 0;
@@ -39,6 +46,7 @@ class Stack{
             }
         }
 
+        // podemos reasignar valores con el operador =
         void operator=(Stack<T> s){
             while (!this->empty())
                 this->pop();
@@ -54,6 +62,7 @@ class Stack{
     
 };
 
+// sobrecarga del operador de salida de texto
 template<typename T>
 ostream & operator<<(ostream & output, Stack<T> s){
     string str = "";
@@ -70,6 +79,7 @@ ostream & operator<<(ostream & output, Stack<T> s){
     return output;
 }
 
+// sumar dos stacks y crear uno nuevo
 template<typename T>
 Stack<T> operator+(Stack<T> s1, Stack<T> s2){
     T aux;
