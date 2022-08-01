@@ -11,14 +11,14 @@ U getAnyValue(T * objeto,  U(T::*getter)(void)){
     return (objeto->*getter)();
 }
 
-
+/*
 bool operator<(string s1, string s2){
     return (s1.length() < s2.length());
 }
 
 bool operator>(string s1, string s2){
     return (s1.length() > s2.length());
-}
+}*/
 
 template<typename T>
 void mostrar(T arr[], int size){   
@@ -107,16 +107,13 @@ int main(){
 
     for(int i = 0; i < 5; i++){
         puntos[i].setPoints(rand()%6 + 1, rand()%10 + 5);
-        cout<<puntos[i].getX()<<"   "<<puntos[i].getY()<<endl;
+        //cout<<puntos[i].getX()<<"   "<<puntos[i].getY()<<endl;
     }
 
     cout<<endl;
 
-
-    ordenar(puntos,5,&Point::getY);
-
-
-
+    //ordenar(puntos,5,&Point::getY);
+    ordenar(cadenas,4);
 
     return 0;
 }
